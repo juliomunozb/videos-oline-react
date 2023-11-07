@@ -43,4 +43,9 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
+  //Parametros para la configuración del server de desarrollo
+  devServer: {
+    open: true, //Abrimos el navegador
+    port: 30002,
+  },
 };
