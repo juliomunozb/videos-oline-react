@@ -2,6 +2,18 @@ const path = require('path') // Depedencia nativa de node
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const rulesForImages = {
+  test: /\.(png|gif|jpg)$/,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: './assets/[hash].[ext]'
+      }
+    }
+
+  ]
+}
 const rulesForStyles = {
   test: /\.(c|sc|sa)ss$/,
   use: [
@@ -28,7 +40,7 @@ const rulesForHtml = {
     }
   ]
 }
-const rules = [rulesForJavaScript, rulesForHtml, rulesForStyles]
+const rules = [rulesForJavaScript, rulesForHtml, rulesForStyles, rulesForImages]
 
 module.exports = (env, argv) => {
   // Obteniendo si el deploy es desarrollo o producción
