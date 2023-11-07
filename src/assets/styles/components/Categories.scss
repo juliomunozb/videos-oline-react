@@ -1,0 +1,10 @@
+@import "../components/_globales.scss";
+.categories {
+  &__title {
+    width: 100%;
+    padding-left: 30px;
+    position: absolute;
+    color: $color-primario;
+    @include font-size(18px);
+  }
+}

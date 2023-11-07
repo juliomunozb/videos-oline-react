@@ -1,0 +1,20 @@
+@import "../components/_globales.scss";
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 150px;
+  border-radius: 0px 0px 40px 40px;
+  &__title {
+    color: $color-primario;
+    @include font-size(27px);
+  }
+}
+
+.input {
+  @include input("buscador");
+  &::placeholder {
+    color: $color-primario; /*color del texto del placehordel en blanco*/
+  }
+}

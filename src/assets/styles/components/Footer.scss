@@ -1,0 +1,28 @@
+@import "../components/_breakpoints.scss";
+@import "../components/_globales.scss";
+
+.footer {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  background-color: $color-secundario;
+
+  a {
+    padding-left: 30px;
+    @include font-size(16px);
+    text-decoration: none;
+    cursor: pointer;
+    color: $color-primario;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  @include media(mobile-only) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.color-variation {
+  background-color: $color-variacion;
+}

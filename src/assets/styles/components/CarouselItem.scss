@@ -1,0 +1,63 @@
+@import "../components/_globales.scss";
+.carousel-item {
+  width: 200px;
+  height: 250px;
+  margin-right: 10px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden; /*oculta las puntas de las imagenes*/
+  display: inline-block; /*los elementos queden ubicados en una sola linea*/
+  cursor: pointer;
+  transition: 450ms all;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+  background-color: $color-secundario;
+  &:hover ~ .carousel-item {
+    /*selector hermano - aplica el el mismo estilo tanto en el evento hove como en el item normal*/
+    -webkit-transform: translate3d(100px, 0, 0);
+    transform: translate3d(100px, 0, 0);
+    /*Cuando se hace hover, el contenedor de la imagen del lado se desplaza hacia en el eje x*/
+  }
+  &__img {
+    width: 200px;
+    height: 250px;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  &__details {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    opacity: 0;
+    transition: 450ms opacity;
+    @include font-size(10px);
+  }
+  &__details--img {
+    width: 20px;
+  }
+  &:hover .carousel-item__details {
+    opacity: 1;
+  }
+  &__details--title {
+    margin: 5px 0px 0px 0px;
+    color: $color-primario;
+    @include font-size(10px);
+  }
+  &__details--subtitle {
+    margin: 3px 0px;
+    color: $color-primario;
+    @include font-size(10px);
+  }
+}

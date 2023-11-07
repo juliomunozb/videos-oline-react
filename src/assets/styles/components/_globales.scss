@@ -1,0 +1,66 @@
+/*En este archivo debe ir: variables, función, mixin , estilos generales*/
+//Variables
+$fuente: "Mulish", sans-serif;
+$color-primario: white;
+$color-secundario: #24bee3;
+$color-variacion: #023e8a;
+
+//Mixins
+@mixin input($tipo) {
+  height: 50px;
+  padding: 0px 20px;
+  outline: none; /*quitamos el borde por defecto que se coloca cuando ponemos el cursor del mouse*/
+  color: $color-primario;
+  font-size: 16px;
+  font-family: $fuente;
+
+  @if $tipo == "buscador" {
+    width: 70%;
+    background-color: get-opacity($color-primario, 0.1);
+    border-radius: 50px;
+    border: 2px solid $color-primario;
+  } @else {
+    //login
+    margin-bottom: 20px;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    background-color: transparent;
+    border-bottom: 2px solid $color-primario;
+  }
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+  line-height: calculateRem($size) * 1.5;
+}
+
+@mixin caja {
+  padding: 60px 60px;
+  height: 700px;
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  border-radius: 40px;
+  background-color: get-opacity($color-primario, 0.1);
+  border: 2px solid $color-primario;
+  color: $color-primario;
+  @include media(mobile-only) {
+    padding: 0px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+//funciones
+@function get-opacity($color, $nivel) {
+  @return rgba($color, $nivel);
+}
+
+@function calculateRem($size) {
+  $remSize: calc($size / 16px);
+  @return $remSize * 1rem;
+}

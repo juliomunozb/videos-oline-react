@@ -1,0 +1,53 @@
+@import "../components/globales";
+.header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  top: 0px;
+  justify-content: space-between; /*separa los item y pone un espacion en medio*/
+  align-items: center;
+  background-color: $color-secundario;
+  &__img {
+    width: 10%;
+    vertical-align: middle;
+  }
+  &__span {
+    color: $color-primario;
+    @include font-size(25px);
+  }
+  &__menu {
+    margin-right: 30px;
+  }
+  &__menu ul {
+    display: none; /*ocualta el menu*/
+    width: 100px;
+    margin: 0px 0px 0px -14px;
+    padding: 0px; /*Por defecto la lista tiene un padding*/
+    position: absolute;
+    text-align: right;
+    list-style: none; /*quitar la viñeta de la lista*/
+  }
+  &__menu:hover ul {
+    display: block; /*poner visible el menu*/
+  }
+  &__menu li {
+    margin: 10px 0px;
+  }
+  &__menu li a {
+    color: $color-primario;
+    text-decoration: none;
+  }
+  &__menu li a:hover {
+    text-decoration: underline;
+  }
+  &__menu--profile {
+    display: flex;
+    margin-right: 8px;
+    align-items: center;
+    color: $color-primario;
+  }
+  &__menu--profile img {
+    margin-right: 8px;
+    width: 40px;
+  }
+}
