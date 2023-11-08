@@ -26,6 +26,7 @@
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
+    "react-router-dom": "^6.18.0",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "standard": "^17.1.0",
