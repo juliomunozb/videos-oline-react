@@ -1,0 +1,25 @@
+@import "./_breakpoints.scss";
+@import './_globales.scss';
+.register {
+  @include container;
+  &__container {
+    @include caja;
+    &--form {
+      display: flex;
+      flex-direction: column;
+    }
+    &--sesion {
+      padding: 2px 0px;
+      display: flex;
+      justify-content: center;
+    }
+    &--sesion a {
+      text-decoration: none;
+      color: $color-primario;
+      @include font-size(16px);
+    }
+    &--sesion a:hover {
+      text-decoration: underline;
+    }
+  }  
+}

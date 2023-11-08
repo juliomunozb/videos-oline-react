@@ -1,6 +1,6 @@
 import React from 'react'
 import '../assets/styles/components/Login.scss'
-import '../assets/styles/components/Botones.scss'
+import '../assets/styles/components/Button.scss'
 import twitterIcon from '../assets/static/twitter-icon.png'
 import googleIcon from '../assets/static/google-icone.png'
 const Login = () => (

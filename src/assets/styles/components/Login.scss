@@ -1,13 +1,7 @@
 @import "./_breakpoints.scss";
 @import './_globales.scss';
 .login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0px 30px;
-  min-height: calc(100vh - 200px);
-  background: linear-gradient($color-secundario, $color-variacion);
+  @include container;
   &__container {
     @include caja;
     &--form {
