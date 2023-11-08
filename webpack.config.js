@@ -78,7 +78,8 @@ module.exports = (env, argv) => {
     // Parametros para la configuración del server de desarrollo
     devServer: {
       open: true, // Abrimos el navegador
-      port: 30002
+      port: 30002,
+      historyApiFallback: true // Permitiendo las rutas del proyecto
     }
   }
 }

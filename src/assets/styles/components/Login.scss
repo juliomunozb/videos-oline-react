@@ -1,0 +1,63 @@
+@import "./_breakpoints.scss";
+@import './_globales.scss';
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 30px;
+  min-height: calc(100vh - 200px);
+  background: linear-gradient($color-secundario, $color-variacion);
+  &__container {
+    @include caja;
+    &--form {
+      display: flex;
+      flex-direction: column;
+    }
+    &--form label {
+      @include font-size(14px);
+    }
+    &--remember-me {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      color: $color-primario;
+    }
+    &--remember-me a {
+      @include font-size(14px);
+      text-decoration: none;
+      color: $color-primario;
+    }
+    &--remember-me a:hover {
+      text-decoration: underline;
+    }
+    &--social-media > div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      @include font-size(14px);
+    }
+    &--social-media > div > img {
+      width: 30px;
+      margin-right: 10px;
+    }
+    &--register {
+      @include font-size(14px);
+    }
+    &--register a {
+      font-weight: bold;
+      text-decoration: none;
+      color: $color-primario;
+      @include font-size(14px);
+    }
+    &--register a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.input-form {
+  @include input("formulario");
+  &::placeholder {
+    color: $color-primario; /*color del texto del placehordel en blanco*/
+  }
+}
