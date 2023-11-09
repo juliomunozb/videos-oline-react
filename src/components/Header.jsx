@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../assets/styles/components/Header.scss'
 import logo from '../assets/static/logo-visionRibbon.png'
 import userIcon from '../assets/static/user-icone.png'
@@ -7,7 +8,9 @@ const Header = () => {
   return (
     <header className='header'>
       <div className='header--logo'>
-        <img className='header__img' src={logo} alt='Logo' />
+        <Link to='/'>
+          <img className='header__img' src={logo} alt='Logo' />
+        </Link>
         <span className='header__span'>VisionRibbon</span>
       </div>
       <div className='header__menu'>
@@ -20,7 +23,7 @@ const Header = () => {
             <a href='/'>Cuenta</a>
           </li>
           <li>
-            <a href='/'>Cerrar Sesión</a>
+            <Link to='/login'>Iniciar Sesión</Link>
           </li>
         </ul>
       </div>
