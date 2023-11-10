@@ -13,7 +13,9 @@ const Home = ({ myList, trends, originals }) => {
       {(myList || []).length > 0 && (
         <Categories title='Mi lista'>
           <Carousel>
-            <CarouselItem />
+            {myList.map((video) => (
+              <CarouselItem key={`${video.name}-${video.duration}`} {...video} />
+            ))}
           </Carousel>
         </Categories>
       )}
