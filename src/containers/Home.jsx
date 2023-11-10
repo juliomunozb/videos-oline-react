@@ -1,53 +1,48 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Search from '../components/Search'
 import Categories from '../components/Categories'
 import Carousel from '../components/Carousel'
 import CarouselItem from '../components/CarouselItem'
-import useInitialState from '../hooks/useInitialState'
 import '../assets/styles/App.scss'
 
-const API = 'http://localhost:3000/initalState'
-
-const Home = () => {
-  const initialState = useInitialState(API)
-  const dataVideos = Object.keys(initialState).length
-
-  return dataVideos === 0
-    ? (
-      <>
-        <h1>Loading...</h1>
-      </>
-      )
-    : (
-      <>
-        <Search />
-        {(initialState.myList || []).length > 0 && (
-          <Categories title='Mi lista'>
-            <Carousel>
-              <CarouselItem />
-            </Carousel>
-          </Categories>
-        )}
-
-        <Categories title='Tendencias'>
+const Home = ({ myList, trends, originals }) => {
+  return (
+    <>
+      <Search />
+      {(myList || []).length > 0 && (
+        <Categories title='Mi lista'>
           <Carousel>
-            {(initialState.trends || []).length > 0 &&
-            initialState.trends.map((video) => (
-              <CarouselItem key={video.id} {...video} />
-            ))}
+            <CarouselItem />
           </Carousel>
         </Categories>
+      )}
 
-        <Categories title='Recomendados'>
-          <Carousel>
-            {(initialState.originals || []).length > 0 &&
-            initialState.originals.map((video) => (
+      <Categories title='Tendencias'>
+        <Carousel>
+          {(trends || []).length > 0 &&
+            trends.map((video) => (
               <CarouselItem key={video.id} {...video} />
             ))}
-          </Carousel>
-        </Categories>
-      </>
-      )
+        </Carousel>
+      </Categories>
+
+      <Categories title='Recomendados'>
+        <Carousel>
+          {(originals || []).length > 0 &&
+            originals.map((video) => (
+              <CarouselItem key={video.id} {...video} />
+            ))}
+        </Carousel>
+      </Categories>
+    </>
+  )
 }
-
-export default Home
+const mapStateToProps = (state) => {
+  return {
+    myList: state.myList,
+    trends: state.trends,
+    originals: state.originals
+  }
+}
+export default connect(mapStateToProps, null)(Home)
