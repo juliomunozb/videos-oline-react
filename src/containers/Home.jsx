@@ -7,6 +7,24 @@ import CarouselItem from '../components/CarouselItem'
 import '../assets/styles/App.scss'
 
 const Home = ({ myList, trends, originals }) => {
+  const isInFavorites = (idItem) => {
+    let isInFavorite = false
+    if ((myList || []).length > 0) {
+      const videoInMyList = myList.filter((item) => {
+        return item.id === idItem
+      })
+      if (videoInMyList.length > 0) {
+        isInFavorite = videoInMyList.map((video) => {
+          if (video.id === idItem) {
+            return true
+          } else {
+            return false
+          }
+        })[0]
+      }
+    }
+    return isInFavorite
+  }
   return (
     <>
       <Search />
@@ -14,7 +32,11 @@ const Home = ({ myList, trends, originals }) => {
         <Categories title='Mi lista'>
           <Carousel>
             {myList.map((video) => (
-              <CarouselItem key={`${video.name}-${video.duration}`} {...video} />
+              <CarouselItem
+                key={`${video.name}-${video.duration}`}
+                {...video}
+                isList
+              />
             ))}
           </Carousel>
         </Categories>
@@ -24,7 +46,11 @@ const Home = ({ myList, trends, originals }) => {
         <Carousel>
           {(trends || []).length > 0 &&
             trends.map((video) => (
-              <CarouselItem key={video.id} {...video} />
+              <CarouselItem
+                key={video.id}
+                {...video}
+                isInFavorites={isInFavorites(video.id)}
+              />
             ))}
         </Carousel>
       </Categories>
@@ -33,7 +59,11 @@ const Home = ({ myList, trends, originals }) => {
         <Carousel>
           {(originals || []).length > 0 &&
             originals.map((video) => (
-              <CarouselItem key={video.id} {...video} />
+              <CarouselItem
+                key={video.id}
+                {...video}
+                isInFavorites={isInFavorites(video.id)}
+              />
             ))}
         </Carousel>
       </Categories>
