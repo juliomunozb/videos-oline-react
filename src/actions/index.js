@@ -5,7 +5,7 @@ export const setFavorite = (payload) => (
     payload
   }
 )
-// Accion para aliminar elementos de Favoritos - myList
+// Accion para eliminar elementos de Favoritos - myList
 export const deleteFavorite = (payload) => (
   {
     type: 'DELETE_FAVORITE',
