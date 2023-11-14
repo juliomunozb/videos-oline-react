@@ -1,10 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import gravatar from '../utils/gravatar'
 import '../assets/styles/components/Header.scss'
 import logo from '../assets/static/logo-visionRibbon.png'
 import userIcon from '../assets/static/user-icone.png'
 // Componente Presentational: Solo van a tener una sección de HTML dentro proyecto
-const Header = () => {
+const Header = (props) => {
+  const { user } = props
+
+  const avatar = () => {
+    const hashUser = Object.keys(user).length > 0
+    let src = userIcon
+    let alt = 'user'
+    if (hashUser) {
+      src = gravatar(user.email)
+      alt = user.email
+    }
+    return <img src={src} alt={alt} />
+  }
   return (
     <header className='header'>
       <div className='header--logo'>
@@ -15,7 +29,7 @@ const Header = () => {
       </div>
       <div className='header__menu'>
         <div className='header__menu--profile'>
-          <img src={userIcon} alt='user' />
+          {avatar()}
           <p>Perfil</p>
         </div>
         <ul>
@@ -30,5 +44,7 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header
+const mapStatetToProps = (state) => {
+  return { user: state.user }
+}
+export default connect(mapStatetToProps, null)(Header)
