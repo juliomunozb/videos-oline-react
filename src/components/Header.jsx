@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { logoutRequest } from '../actions'
 import gravatar from '../utils/gravatar'
 import '../assets/styles/components/Header.scss'
 import logo from '../assets/static/logo-visionRibbon.png'
@@ -8,9 +9,9 @@ import userIcon from '../assets/static/user-icone.png'
 // Componente Presentational: Solo van a tener una sección de HTML dentro proyecto
 const Header = (props) => {
   const { user } = props
+  const hashUser = Object.keys(user).length > 0
 
-  const avatar = () => {
-    const hashUser = Object.keys(user).length > 0
+  const avatar = ({ hashUser }) => {
     let src = userIcon
     let alt = 'user'
     if (hashUser) {
@@ -18,6 +19,31 @@ const Header = (props) => {
       alt = user.email
     }
     return <img src={src} alt={alt} />
+  }
+
+  const listItemProfile = ({ hashUser }) => {
+    if (hashUser) {
+      return (
+        <>
+          <li>
+            <a href='/'>{user.name}</a>
+          </li>
+          <li>
+            <a href='/logout' onClick={handleLogout}>Cerrar Sesión</a>
+          </li>
+        </>
+      )
+    } else {
+      return (
+        <li>
+          <Link to='/login'>Iniciar Sesión</Link>
+        </li>
+      )
+    }
+  }
+
+  const handleLogout = () => {
+    props.logoutRequest({})
   }
   return (
     <header className='header'>
@@ -29,16 +55,11 @@ const Header = (props) => {
       </div>
       <div className='header__menu'>
         <div className='header__menu--profile'>
-          {avatar()}
+          {avatar({ hashUser })}
           <p>Perfil</p>
         </div>
         <ul>
-          <li>
-            <a href='/'>Cuenta</a>
-          </li>
-          <li>
-            <Link to='/login'>Iniciar Sesión</Link>
-          </li>
+          {listItemProfile({ hashUser })}
         </ul>
       </div>
     </header>
@@ -47,4 +68,8 @@ const Header = (props) => {
 const mapStatetToProps = (state) => {
   return { user: state.user }
 }
-export default connect(mapStatetToProps, null)(Header)
+
+const mapDispatchToProps = {
+  logoutRequest
+}
+export default connect(mapStatetToProps, mapDispatchToProps)(Header)
