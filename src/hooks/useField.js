@@ -1,13 +1,12 @@
 import { useState } from 'react'
 
-export default function useField ({ type }) {
+export default function useField ({ type, name }) {
   const [value, setValue] = useState('')
   const onChange = event => {
-    console.log(event.target.name, ':', event.target.value)
     setValue(event.target.value)
   }
-
   return {
+    name,
     type,
     value,
     onChange
