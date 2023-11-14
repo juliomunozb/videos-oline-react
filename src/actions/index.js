@@ -12,3 +12,10 @@ export const deleteFavorite = (payload) => (
     payload
   }
 )
+// Accion para guardat en el sotore datos del login
+export const loginRequest = (payload) => (
+  {
+    type: 'LOGIN_REQUEST',
+    payload
+  }
+)
