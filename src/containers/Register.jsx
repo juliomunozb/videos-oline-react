@@ -1,10 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { registerRequest } from '../actions'
 import useField from '../hooks/useField'
 import '../assets/styles/components/Register.scss'
 import '../assets/styles/components/Button.scss'
 
-const Register = () => {
+const Register = (props) => {
+  const navigate = useNavigate()
   const name = useField({ type: 'text', name: 'name' })
   const email = useField({ type: 'text', name: 'email' })
   const password = useField({ type: 'password', name: 'password' })
@@ -16,6 +19,8 @@ const Register = () => {
       email: event.target.email.value,
       password: event.target.password.value
     }
+    props.registerRequest(formData)
+    navigate('/')
     console.log(formData)
     // console.log(event.target.name.value)
   }
@@ -52,4 +57,7 @@ const Register = () => {
   )
 }
 
-export default Register
+const mapDisapatchToProps = {
+  registerRequest
+}
+export default connect(null, mapDisapatchToProps)(Register)
