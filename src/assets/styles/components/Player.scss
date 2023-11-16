@@ -1,14 +1,11 @@
 @import './Button.scss';
 .player {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  @include container;
-
-  &__video{
-    width: 100vw;
-    height: 50vh;
-  }
+  position: relative;
+  @include container(false);
+  /*&__video{
+    width: 90vw;
+    height: 90vh;
+  }*/
   &__controls{
     padding-top: 10px;
     display: flex;
@@ -21,6 +18,8 @@
   }
 }
 .button__back{
-  padding-left: 20px;
+  position: absolute;
+  left: 100px;
+  top: 0;
 }
 

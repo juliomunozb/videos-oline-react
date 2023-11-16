@@ -57,14 +57,16 @@ $color-variacion: #023e8a;
   }
 }
 
-@mixin container{
+@mixin container($backgroundColor:true){
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 0px 30px;
   min-height: calc(100vh - 200px);
-  background: linear-gradient($color-secundario, $color-variacion);
+  @if($backgroundColor){
+    background: linear-gradient($color-secundario, $color-variacion);
+  }
 }
 
 //funciones

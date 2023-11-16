@@ -1,7 +1,7 @@
 @import "./_globales.scss";
 .error {
   display: flex;
-  @include container;
+  @include container(false);
   &__container {
     display: flex;
     flex-direction: column;

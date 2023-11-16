@@ -24,11 +24,11 @@ const Player = (props) => {
     : hasPlayin
       ? (
         <>
-          <section className='button__back'>
-            <button className='button' onClick={() => navigate(-1)}> Regresar</button>
-          </section>
           <section className='player'>
             <video controls autoPlay className='player__video' src={props.playing.source} />
+            <section className='button__back'>
+              <button className='button' onClick={() => navigate(-1)}> Regresar</button>
+            </section>
           </section>
         </>
         )
