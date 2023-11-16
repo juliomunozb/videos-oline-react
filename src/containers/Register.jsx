@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Footer from '../components/Footer'
 import { registerRequest } from '../actions'
 import useField from '../hooks/useField'
 import '../assets/styles/components/Register.scss'
@@ -25,35 +26,38 @@ const Register = (props) => {
     // console.log(event.target.name.value)
   }
   return (
-    <section className='register'>
-      <section className='register__container'>
-        <h2>Registro</h2>
-        <form className='register__container--form' onSubmit={handleSubmit}>
-          <input
-            {...name}
-            placeholder='Nombre'
-            aria-label='Nombre'
-            className='input-form'
-          />
-          <input
-            {...email}
-            aria-label='Correo'
-            className='input-form'
-            placeholder='Correo'
-          />
-          <input
-            {...password}
-            aria-label='Contraseña'
-            className='input-form'
-            placeholder='Contraseña'
-          />
-          <button className='button'>Registrarme</button>
-        </form>
-        <p className='register__container--sesion'>
-          <Link to='/login'>Iniciar sesión</Link>
-        </p>
+    <>
+      <section className='register'>
+        <section className='register__container'>
+          <h2>Registro</h2>
+          <form className='register__container--form' onSubmit={handleSubmit}>
+            <input
+              {...name}
+              placeholder='Nombre'
+              aria-label='Nombre'
+              className='input-form'
+            />
+            <input
+              {...email}
+              aria-label='Correo'
+              className='input-form'
+              placeholder='Correo'
+            />
+            <input
+              {...password}
+              aria-label='Contraseña'
+              className='input-form'
+              placeholder='Contraseña'
+            />
+            <button className='button'>Registrarme</button>
+          </form>
+          <p className='register__container--sesion'>
+            <Link to='/login'>Iniciar sesión</Link>
+          </p>
+        </section>
       </section>
-    </section>
+      <Footer isRegister />
+    </>
   )
 }
 
