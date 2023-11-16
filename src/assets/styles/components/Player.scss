@@ -2,10 +2,11 @@
 .player {
   position: relative;
   @include container(false);
-  /*&__video{
+  &__video{
     width: 90vw;
     height: 90vh;
-  }*/
+    object-fit: cover;
+  }
   &__controls{
     padding-top: 10px;
     display: flex;
