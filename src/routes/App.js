@@ -5,6 +5,7 @@ import Login from '../containers/Login'
 import Register from '../containers/Register'
 import NotFound from '../containers/NotFound'
 import Layout from '../components/Layout'
+import Player from '../containers/Player'
 const App = () => (
   <BrowserRouter>
     <Layout>
@@ -12,6 +13,7 @@ const App = () => (
         <Route exact path='/' element={<Home />} />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/register' element={<Register />} />
+        <Route exact path='/player/:id' element={<Player />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Layout>

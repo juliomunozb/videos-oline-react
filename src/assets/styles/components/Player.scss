@@ -1,0 +1,26 @@
+@import './Button.scss';
+.player {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__video{
+    width: 100vw;
+    height: 50vh;
+  }
+  &__controls{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__controls button{
+    margin: 10px;
+  }
+}
+.button__back{
+  padding-left: 20px;
+}
+
