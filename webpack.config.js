@@ -52,7 +52,8 @@ module.exports = (env, argv) => {
     // directorio donde se empaquetarán los archivos
     output: {
       path: path.resolve(__dirname, 'build'),
-      filename: isProduction ? '[name].[contenthash].js' : 'main.js'
+      filename: isProduction ? '[name].[contenthash].js' : 'main.js',
+      publicPath: '/'
     },
     // Extensiones que debe resolver para el paquete
     resolve: {

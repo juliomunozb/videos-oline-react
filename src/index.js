@@ -21,7 +21,7 @@ const initialState = {
       duration: 164,
       cover: 'http://dummyimage.com/800x600.png/99118E/ffffff',
       description: 'Vestibulum ac est lacinia nisi venenatis tristique',
-      source: 'https://mdstrm.com/video/58333e214ad055d208427db5.mp4'
+      source: 'https://v3.cdnpk.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_11_preview.mp4'
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const initialState = {
       duration: 137,
       cover: 'http://dummyimage.com/800x600.png/302140/ffffff',
       description: 'Vestibulum ac est lacinia nisi venenatis tristique',
-      source: 'https://mdstrm.com/video/58333e214ad055d208427db5.mp4'
+      source: 'https://v1.cdnpk.net/videvo_files/video/premium/video0307/large_watermarked/601-2_601-7633_preview.mp4'
     },
     {
       id: 4,
