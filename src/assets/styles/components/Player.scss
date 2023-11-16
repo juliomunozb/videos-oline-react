@@ -1,9 +1,9 @@
 @import './Button.scss';
 .player {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @include container;
 
   &__video{
     width: 100vw;

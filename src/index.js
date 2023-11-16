@@ -177,9 +177,6 @@ const root = createRoot(container)
 root.render(
 
   <Provider store={store}>
-    {store.subscribe(() => {
-      console.log(store.getState())
-    })}
     <App />
   </Provider>
 )
